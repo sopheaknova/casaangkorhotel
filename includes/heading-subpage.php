@@ -6,9 +6,7 @@
           <div class="heading-img">	
           <img src="<?php bloginfo('template_url'); ?>/images/heading-img.jpg" alt="" />
           </div>
-          <div class="stroke-heading-img">
-          <img src="<?php bloginfo('template_url'); ?>/images/stroke-heading-page.png" alt="" />
-          </div>
+          <?php sp_framework_stroke_overlap('masthead'); ?>
       </div><!--/.heading image-->
       
     </div>

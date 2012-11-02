@@ -18,14 +18,16 @@ if( !function_exists('sp_framework_setup') ) {
 		add_editor_style('css/editor-style.css');
 
 		// Post formats
-		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio' ) );
+		add_theme_support( 'post-formats', array( 'video' ) );
 
 		// Post thumbnails
 		add_theme_support('post-thumbnails');
 
 		add_image_size( 'blog-post', 431, null, true );
-		add_image_size( 'blog-post-thumb', 202, null, true );
-		add_image_size( 'fullwidth', 940, null, true );
+		add_image_size( 'blog-post-thumb', 202, 135, true );
+		add_image_size( 'blog-post-small', 139, 105, true );
+		add_image_size( 'slideshow-home', 960, 402, true );
+		add_image_size( 'fullwidth', 918, null, true );
 
 		// Add default posts and comments RSS feed links to head
 		add_theme_support('automatic-feed-links');
@@ -42,7 +44,7 @@ if( !function_exists('sp_framework_setup') ) {
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary_nav' => __( 'Primary Navigation', 'sp_framework' ),
-			'foofer_nav'  => __( 'Footer Navigation', 'sp_framework' )
+			'footer_nav'  => __( 'Footer Navigation', 'sp_framework' )
 		) );
 
 	}
@@ -53,6 +55,13 @@ add_action('after_setup_theme', 'sp_framework_setup');
 /*	Load Parts
 /* ---------------------------------------------------------------------- */
 
+// Add theme options
+include( SP_BASE_DIR . 'functions/admin.php' );
+
+// Add meta boxes
+include( SP_BASE_DIR . 'framework/meta-box/class.php' );
+include( SP_BASE_DIR . 'framework/meta-boxes.php' );
+
 // Add shortcodes
 //include( SP_BASE_DIR . 'framework/shortcodes.php' );
 
@@ -60,7 +69,7 @@ add_action('after_setup_theme', 'sp_framework_setup');
 include( SP_BASE_DIR . 'framework/custom-functions.php' );
 
 // Add custom post types
-//include( SP_BASE_DIR . 'framework/custom-post-types.php' );
+include( SP_BASE_DIR . 'framework/custom-post-types.php' );
 
 /* ---------------------------------------------------------------------- */
 /*	Theme styles

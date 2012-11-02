@@ -1,46 +1,37 @@
 <!-- Latest updated -->
 <div id="latest-updated">
     <ul class="news-wrap">
+    <?php 
+	$args = array (
+				'posts_per_page'	=> 8,
+				'category__not_in'			=> 1,
+				'orderby'			=> 'rand'
+			);
+	$news_query = new WP_Query($args);
+	while ($news_query->have_posts()) : $news_query->the_post();		
+	?>
         <li>
             <div class="items">
-            <h4><a href="#">Welcome to our hotel</a></h4>
-            <img src="<?php bloginfo('template_url'); ?>/images/news-01.jpg" alt="welcome to casa angkor hotel" class="alignleft" />
+            <h4><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sp_framework'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+            <?php if (has_post_thumbnail()) : ?>
+            <?php $news_img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'blog-post-small'); ?>
+            <img src="<?php echo $news_img_src[0]; ?>" alt="<?php the_title(); ?>" class="alignleft" />
+            <?php endif; ?>
             <div class="desc">
-            <p>Enjoy a striking destination inspired by the extraordinary landscape, melding the offerings of thrilling in outdoor recreation and renowned spa treatments, with the hot & unsurpassed beauty of the City of Siem Reap. </p>
-            <a class="readmore" href="#">More information</a>
+            <p>
+            <?php 
+			$excerpt = $post->post_excerpt;
+			if($excerpt==''){
+			$excerpt = get_the_content('');
+			}
+			echo wp_html_excerpt($excerpt,200) . ' ...';
+			?>
+            </p>
+            <a class="readmore" href="<?php the_permalink(); ?>"><?php _e( 'More information', 'sp_framework' ); ?></a>
             </div>
            </div>
         </li>
-        <li>
-            <div class="items">
-            <h4><a href="#">Dining</a></h4>
-            <img src="<?php bloginfo('template_url'); ?>/images/news-02.jpg" alt="Dining in our hotel" class="alignleft" />
-            <div class="desc">
-            <p>Indulge in our delicious cuisine infused with organic ingredients and prepared by expert chefs. We are providing a wide array of fine dining establishments offering stunning views from every turn ...</p>
-            <a class="readmore" href="#">More information</a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="items">
-            <h4><a href="#">Make your body Gym</a></h4>
-            <img src="<?php bloginfo('template_url'); ?>/images/news-01.jpg" alt="welcome to casa angkor hotel" class="alignleft" />
-            <div class="desc">
-            <p>Enjoy a striking destination inspired by the extraordinary landscape, melding the offerings of thrilling in outdoor recreation and renowned spa treatments, with the hot & unsurpassed beauty of the City of Siem Reap. </p>
-            <a class="readmore" href="#">More information</a>
-            </div>
-           </div>
-        </li>
-        <li>
-            <div class="items">
-            <h4><a href="#">Swiming and Relax</a></h4>
-            <img src="<?php bloginfo('template_url'); ?>/images/news-02.jpg" alt="Dining in our hotel" class="alignleft" />
-            <div class="desc">
-            <p>Indulge in our delicious cuisine infused with organic ingredients and prepared by expert chefs. We are providing a wide array of fine dining establishments offering stunning views from every turn ...</p>
-            <a class="readmore" href="#">More information</a>
-            </div>
-            </div>
-        </li>
+    <?php endwhile; ?>    
     </ul>        	
 </div>
 <!-- /#latest-updated -->

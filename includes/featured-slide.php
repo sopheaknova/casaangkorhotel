@@ -5,14 +5,26 @@
       <div class="wrap-slide box-shadow">
           <a href="#" class="prev">Prev</a>
           <div class="slideshow">
-            <img src="<?php bloginfo('template_url'); ?>/images/slide2.jpg"  alt="We offer a choice of comfortable rooms and great rates" />
-            <img src="<?php bloginfo('template_url'); ?>/images/slide1.jpg"  alt="Summer Rexlax in CASA" />
-            <img src="<?php bloginfo('template_url'); ?>/images/slide3.jpg"  alt="Best destination for your Trip" />
+          <?php 
+		  $args = array (
+		  				'post_type'		=> 'slider',
+						'posts_per_page'	=> 5
+		  			);
+		  $slide_query = new WP_Query($args);
+		  
+		  while ( $slide_query->have_posts() ) : $slide_query->the_post();		  
+		  
+		  $slide_image = get_post_meta( $post->ID, 'sp_slideshow_image', true );
+		  $slide_src = wp_get_attachment_image_src($slide_image, 'slideshow-home');
+		  ?>
+		  <img src="<?php echo $slide_src[0];?>" alt="<?php the_title(); ?>" />
+          <?
+		  endwhile;
+		  ?>  
           </div><!--/.slideshow-->
           
-          <div class="stroke-slide">
-            <img src="<?php bloginfo('template_url'); ?>images/strokeslide.png" alt="" />
-          </div><!--/.stroke slide-->
+          <?php sp_framework_stroke_overlap('slidehome') ?>
+          
           <a href="#" class="next">Next</a>
                 
           <div id="caption"><h3></h3></div>

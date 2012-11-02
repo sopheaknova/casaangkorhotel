@@ -1,14 +1,12 @@
 <?php
 
 /* ---------------------------------------------------------------------- */
-/*	Show main navigation
+/*	Show main and footer navigation
 /* ---------------------------------------------------------------------- */
 
 if( !function_exists('sp_framework_main_navigation')) {
 
 	function sp_framework_main_navigation() {
-
-		global $post, $wp_query;
 
 		$defaults = array(
 			'container'      => false,
@@ -20,4 +18,32 @@ if( !function_exists('sp_framework_main_navigation')) {
 
 }
 
+if (!function_exists('sp_framework_footer_navigation')){
+	function sp_framework_footer_navigation() {
+		$defaults = array(
+			'container'      => false,
+			'menu_class'	 => 'footer-nav',
+			'theme_location' => 'footer_nav'
+		);
+			wp_nav_menu( $defaults );	
+	}
+}
 
+/* ---------------------------------------------------------------------- */
+/*	Show stroke overlap on Slide and heading image
+/* ---------------------------------------------------------------------- */
+if ( !function_exists('sp_framework_stroke_overlap')) {
+	
+	function sp_framework_stroke_overlap($pagename) {
+		if ($pagename == 'slidehome') {
+			$output = '<div class="stroke-slide">';
+			$output .= '<img src="'. SP_BASE_URL .'images/strokeslide.png" alt="" />';	
+			$output .= '</div>';
+		} elseif ($pagename == 'masthead') {
+			$output = '<div class="stroke-heading-img">';
+			$output .= '<img src="'. SP_BASE_URL .'images/stroke-heading-page.png" alt="" />';	
+			$output .= '</div>';	
+		}	
+		echo $output;
+	}
+}

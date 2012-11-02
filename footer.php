@@ -1,13 +1,7 @@
   <footer id="footer">
    <nav class="nav-footer">
     <div class="inner">
-        <ul>
-          <li><a href="#">Go to know Cambodia</a></li>
-          <li><a href="#">Excursion from Phnom Penh</a></li>
-          <li><a href="#">Festifals in Cambodia</a></li>
-          <li><a href="#">Privacy policy</a></li>
-          <li><a href="#">Contact us</a></li>
-        </ul>
+        <?php echo sp_framework_footer_navigation(); ?>
     </div>
     </nav>
     

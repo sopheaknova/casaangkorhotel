@@ -53,8 +53,7 @@ function sp_framework_edit_slider_columns() {
 	$columns = array(
 		'cb'          => '<input type="checkbox" />',
 		'title'       => __( 'Name', 'sp_framework' ),
-		'slide_count' => __( 'Slide Count', 'sp_framework' ),
-		'shortcode'   => __( 'Shortcode', 'sp_framework' )
+		'thumbnail'   => __( 'Thumbnail', 'sp_framework' )
 	);
 
 	return $columns;
@@ -66,22 +65,15 @@ add_action('manage_edit-slider_columns', 'sp_framework_edit_slider_columns');
 function sp_framework_manage_slider_columns( $column, $post_id ) {
 
 	global $post;
+	$slide_image = get_post_meta( $post_id, 'sp_slideshow_image', true );
 
 	switch ( $column ) {
 
-		case 'slide_count':
-
-			$slider_slides = get_post_meta( $post->ID, $id, true ) ? get_post_meta( $post->ID, $id, true ) : false;
-
-			$slide_count = count( unserialize( $slider_slides['ss_slider_slides'][0] ) );
+		case 'thumbnail':
 			
-			echo $slide_count;
-
-			break;
-
-		case 'shortcode':
-			
-			echo '<span class="shortcode-field">[slider id="'. $post->post_name . '"]</span>';
+			/* Frist line get image from Featured Image*/
+			//echo '<a href="' . get_edit_post_link( $post_id ) . '">' . get_the_post_thumbnail( $post_id, array(200, 86), array( 'title' => get_the_title( $post_id ) ) ) . '</a>';
+			echo '<a href="' . get_edit_post_link( $post_id ) . '">' . wp_get_attachment_image($slide_image, array(200, 86)) . '</a>';
 
 			break;
 		
@@ -91,16 +83,6 @@ function sp_framework_manage_slider_columns( $column, $post_id ) {
 
 }
 add_action('manage_slider_posts_custom_column', 'sp_framework_manage_slider_columns', 10, 2);
-
-// Sortable custom columns for 'Slider'
-function sp_framework_sortable_slider_columns( $columns ) {
-
-	$columns['slide_count'] = 'slide_count';
-
-	return $columns;
-
-}
-add_action('manage_edit-slider_sortable_columns', 'sp_framework_sortable_slider_columns');
 
 // Change default title for 'Slider'
 function sp_framework_change_slider_title( $title ){

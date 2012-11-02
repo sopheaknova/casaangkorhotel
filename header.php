@@ -11,6 +11,8 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
+<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" type="image/x-icon" /> 
+
 <!--[if lt IE 9]>
 <script src="<?php bloginfo('template_url'); ?>/js/IE9.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script>
