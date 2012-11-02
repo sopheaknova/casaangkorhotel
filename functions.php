@@ -23,11 +23,8 @@ if( !function_exists('sp_framework_setup') ) {
 		// Post thumbnails
 		add_theme_support('post-thumbnails');
 
-		add_image_size( 'blog-post', 680, null, true );
-		add_image_size( 'blog-post-thumb', 300, null, true );
-		add_image_size( 'portfolio-one-half', 460, 292, true );
-		add_image_size( 'portfolio-one-third', 300, 190, true );
-		add_image_size( 'portfolio-one-fourth', 220, 140, true );
+		add_image_size( 'blog-post', 431, null, true );
+		add_image_size( 'blog-post-thumb', 202, null, true );
 		add_image_size( 'fullwidth', 940, null, true );
 
 		// Add default posts and comments RSS feed links to head
