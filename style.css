@@ -104,6 +104,8 @@ body {
 	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 	-webkit-text-size-adjust: 100%;
 }
+::-moz-selection { background: #8059B3; color: #fff; text-shadow: none; }
+::selection { background: #8059B3; color: #fff; text-shadow: none; }
 a {
     color: #6f269e; /* #bf2e1a; #f89921; */
     text-decoration: none;
@@ -387,12 +389,16 @@ sub { vertical-align: bottom; font-size: 0.6em; }
 .img-box .img-wrap{
 	position:relative;
 	width:230px;
-	height:104px;
+	height:134px;
 	margin-bottom:5px;
 }
 .img-box h3{
-	font-size:14px;
+	font-size:16px;
 	margin:0;
+	width:100%;
+	text-align:center;
+	position:absolute;
+	bottom:0;
 }
 .img-box .img-border, .img-box img{
 	position:absolute;
@@ -752,6 +758,9 @@ ul.news-wrap li p{
 	background:#333;
 	color:#CCC;
 }
+.reservation-widget a{
+	color:#FFC8F7;
+}
 
 
 /* END WIDGET */
@@ -988,3 +997,30 @@ table tbody tr:hover td {
 /* END TABLE */
 
 /* --------------------------------------------------------------------------------------------------- */
+
+/* BACK TO TOP */
+#back-to-top, .touch-device #back-to-top:hover {
+		background: url(images/arrow-up-large.png) no-repeat center center;
+		background-color: rgb(221, 221, 221);
+		background-color: rgba(221, 221, 221, .7);
+		bottom: 20px;
+		color: transparent;
+		display: none;
+		font: 0/0 a;
+		height: 46px;
+		position: fixed;
+		right: 20px;
+		text-shadow: none;
+		-webkit-transition: all .2s ease;
+		   -moz-transition: all .2s ease;
+			-ms-transition: all .2s ease;
+			 -o-transition: all .2s ease;
+				transition: all .2s ease;
+		width: 45px;
+		z-index: 100;
+	}
+
+		#back-to-top:hover, .touch-device #back-to-top:active { background-color: #3a3a3a; }
+		
+/* END BACK TO TOP */
+		

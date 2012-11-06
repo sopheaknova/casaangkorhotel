@@ -11,15 +11,20 @@
 						'posts_per_page'	=> 5
 		  			);
 		  $slide_query = new WP_Query($args);
-		  
+		  if ($slide_query->have_posts()) :
 		  while ( $slide_query->have_posts() ) : $slide_query->the_post();		  
 		  
 		  $slide_image = get_post_meta( $post->ID, 'sp_slideshow_image', true );
 		  $slide_src = wp_get_attachment_image_src($slide_image, 'slideshow-home');
 		  ?>
-		  <img src="<?php echo $slide_src[0];?>" alt="<?php the_title(); ?>" />
-          <?
+          <img src="<?php echo $slide_src[0];?>" alt="<?php the_title(); ?>" />
+          
+          <?php
 		  endwhile;
+		  else: ?>
+          <img src="<?php echo SP_BASE_URL;?>images/slideshow-960x402.gif" alt="<?php the_title(); ?>" />
+          <?php 
+		  endif;
 		  ?>  
           </div><!--/.slideshow-->
           

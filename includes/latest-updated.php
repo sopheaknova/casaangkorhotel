@@ -1,15 +1,19 @@
-<!-- Latest updated -->
-<div id="latest-updated">
-    <ul class="news-wrap">
+
     <?php 
 	$args = array (
 				'posts_per_page'	=> 8,
 				'category__not_in'			=> 1,
+				//'cat'	=>	7,
 				'orderby'			=> 'rand'
 			);
 	$news_query = new WP_Query($args);
-	while ($news_query->have_posts()) : $news_query->the_post();		
-	?>
+	if ($news_query->have_posts()) : ?>
+    
+<!-- Latest updated -->
+<div id="latest-updated">
+    <ul class="news-wrap">
+    
+    <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
         <li>
             <div class="items">
             <h4><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sp_framework'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
@@ -31,7 +35,9 @@
             </div>
            </div>
         </li>
-    <?php endwhile; ?>    
+    <?php endwhile; ?>
     </ul>        	
 </div>
 <!-- /#latest-updated -->
+    <?php endif; ?>    
+    

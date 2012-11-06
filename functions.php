@@ -57,11 +57,14 @@ add_action('after_setup_theme', 'sp_framework_setup');
 /* ---------------------------------------------------------------------- */
 
 // Add theme options
-include( SP_BASE_DIR . 'functions/admin.php' );
+//include( SP_BASE_DIR . 'framework/admin.php' );
 
 // Add meta boxes
 include( SP_BASE_DIR . 'framework/meta-box/class.php' );
 include( SP_BASE_DIR . 'framework/meta-boxes.php' );
+
+// Add widgets
+include( SP_BASE_DIR . 'framework/widgets.php' );
 
 // Add shortcodes
 //include( SP_BASE_DIR . 'framework/shortcodes.php' );
@@ -71,6 +74,9 @@ include( SP_BASE_DIR . 'framework/custom-functions.php' );
 
 // Add custom post types
 include( SP_BASE_DIR . 'framework/custom-post-types.php' );
+
+// Add custom functions
+include( SP_BASE_DIR . 'framework/custom-functions.php' );
 
 /* ---------------------------------------------------------------------- */
 /*	Theme styles
@@ -161,9 +167,14 @@ function sp_framework_admin_scripts( $hook ) {
 }
 //add_action('admin_enqueue_scripts', 'sp_framework_admin_scripts');
 
-/* ---------------------------------------------------------------------- */
-/*	Filter Hooks
-/* ---------------------------------------------------------------------- */
+// This function is used in processing images (cutting, cropping, zoom)
+if ( !function_exists('sp_process_image') ) {
+    function sp_process_image( $img_source, $img_width, $img_height, $zc = 1, $q = 100 ) {
+		
+		$img_source = SP_BASE_URL .'framework/scripts/timthumb.php?src='.$img_source.'&amp;w='.$img_width.'&amp;h='.$img_height.'&amp;zc='.$zc.'&amp;q='.$q;
+        return $img_source;
+    }
+}
 
 // Makes some changes to the <title> tag, by filtering the output of wp_title()
 function sp_framework_filter_wp_title( $title, $separator ) {
@@ -195,4 +206,33 @@ function sp_framework_filter_wp_title( $title, $separator ) {
 	return $title;
 
 }
-//add_filter('wp_title', 'sp_framework_filter_wp_title', 10, 2);
+add_filter('wp_title', 'sp_framework_filter_wp_title', 10, 2);
+
+// Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link
+function sp_framework_page_menu_args( $args ) {
+
+	$args['show_home'] = true;
+
+	return $args;
+
+}
+add_filter('wp_page_menu_args', 'sp_framework_page_menu_args');
+
+// Sets the post excerpt length to 40 words (or 20 words if post carousel)
+function sp_framework_excerpt_length( $length ) {
+
+	return 40;
+
+}
+add_filter('excerpt_length', 'sp_framework_excerpt_length');
+
+// Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis
+function sp_framework_auto_excerpt_more( $more ) {
+
+	return '&hellip;';
+
+}
+add_filter('excerpt_more', 'sp_framework_auto_excerpt_more');
+
+// Enable shortcodes in text widgets
+add_filter('widget_text', 'do_shortcode');

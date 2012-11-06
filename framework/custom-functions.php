@@ -70,13 +70,7 @@ if( !function_exists('sp_framework_post_content')) {
 			$output .= wp_link_pages( array( 'echo' => false ) );
 
 		} else {
-			$excerpt = $post->post_excerpt;
-			if($excerpt==''){
-			$excerpt = get_the_content('');
-			}
-			
-			$output = wp_html_excerpt($excerpt,200) . ' ...';
-		
+			$output = get_the_excerpt();
 		}
 		return $output;
 
