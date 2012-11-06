@@ -20,29 +20,54 @@ global $meta_boxes, $pagenow;
 $meta_boxes = array();
 
 /* ---------------------------------------------------------------------- */
-/*	General
+/*	General for Page
 /* ---------------------------------------------------------------------- */
 
 $meta_boxes[] = array(
-	'id'       => 'general-settings',
-	'title'    => __('General Settings', 'sp_framework'),
-	'pages'    => array('page', 'post'),
+	'id'       => 'heading-image-setting',
+	'title'    => __('Heading image option', 'sp_framework'),
+	'pages'    => array('page'),
 	'context'  => 'normal',
 	'priority' => 'high',
 	'fields'   => array(
 		array(
-			'name'     => __('Page Layout', 'sp_framework'),
-			'id'       => $prefix . 'page_layout',
-			'type'     => 'radio_image',
+			'name' => __('Upload image for heading page', 'sp_framework'),
+			'id'   => $prefix . 'heading_image_page',
+			'type' => 'thickbox_image'
+		)
+	)
+);
+
+/* ---------------------------------------------------------------------- */
+/*	Post
+/* ---------------------------------------------------------------------- */
+
+$meta_boxes[] = array(
+	'id'       => 'video-post-settings',
+	'title'    => __('Video Setting', 'sp_framework'),
+	'pages'    => array('post'),
+	'context'  => 'normal',
+	'priority' => 'high',
+	'fields'   => array(
+		array(
+			'name' => __('Select video type', 'sp_framework'),
+			'id'   => $prefix . 'video_type',
+			'type'     => 'select',
+			// Array of 'value' => 'Label' pairs for select box
 			'options'  => array(
-				''     => '<img src="' . SP_BASE_URL . 'framework/assets/img/xcol.png" alt="' . __('Use theme default setting', 'sp_framework') . '" title="' . __('Use theme default setting', 'sp_framework') . '" />',
-				'1col' => '<img src="' . SP_BASE_URL . 'framework/assets/img/1col.png" alt="' . __('Fullwidth - No sidebar', 'sp_framework') . '" title="' . __('Fullwidth - No sidebar"', 'sp_framework') . ' />',
-				'2cl'  => '<img src="' . SP_BASE_URL . 'framework/assets/img/2cl.png" alt="' . __('Sidebar on the left', 'sp_framework') . '" title="' . __('Sidebar on the left', 'sp_framework') . '" />',
-				'2cr'  => '<img src="' . SP_BASE_URL . 'framework/assets/img/2cr.png" alt="' . __('Sidebar on the right', 'sp_framework') . '" title="' . __('Sidebar on the right', 'sp_framework') . '" />'
+				'youtube' => 'You Tube',
+				'vimeo' => 'Vimeo',
+				'daily' => 'Daily',
 			),
-			'std'  => ( ( $pagenow == 'post.php' || $pagenow == 'post-new.php' ) && $_GET['post_type'] == 'page' ?  '1col' : '' ),
-			'desc' => __('Here you can overwrite the Site Structure setting from the Theme Options, just for this page.', 'sp_framework')
-		) 
+			// Select multiple values, optional. Default is false.
+			'multiple' => false,
+		),
+		array(
+			'name' => __('Video id', 'sp_framework'),
+			'id'   => $prefix . 'video_id',
+			'type' => 'text',
+			'std'	=> '',
+		)
 	)
 );
 

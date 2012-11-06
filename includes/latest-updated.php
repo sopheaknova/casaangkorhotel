@@ -20,11 +20,11 @@
             <div class="desc">
             <p>
             <?php 
-			$excerpt = $post->post_excerpt;
-			if($excerpt==''){
-			$excerpt = get_the_content('');
-			}
-			echo wp_html_excerpt($excerpt,200) . ' ...';
+				$excerpt = $post->post_excerpt;
+				if($excerpt==''){
+				$excerpt = get_the_content('');
+				}
+				echo wp_html_excerpt($excerpt,200) . ' ...'; 
 			?>
             </p>
             <a class="readmore" href="<?php the_permalink(); ?>"><?php _e( 'More information', 'sp_framework' ); ?></a>

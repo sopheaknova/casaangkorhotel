@@ -27,6 +27,7 @@ if( !function_exists('sp_framework_setup') ) {
 		add_image_size( 'blog-post-thumb', 202, 135, true );
 		add_image_size( 'blog-post-small', 139, 105, true );
 		add_image_size( 'slideshow-home', 960, 402, true );
+		add_image_size( 'heading-img-page', 960, 156, true );
 		add_image_size( 'fullwidth', 918, null, true );
 
 		// Add default posts and comments RSS feed links to head

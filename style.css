@@ -287,7 +287,7 @@ sub { vertical-align: bottom; font-size: 0.6em; }
 	width:960px;
 	height:378px;
 }
-a.next, a.prev{
+.slideshow a.next, .slideshow a.prev{
 	position:absolute;
 	z-index:12;
 	width:480px;
@@ -311,17 +311,17 @@ a.next, a.prev{
 	padding:20px;
 	font-size:16px;
 }
-a.next{
+.slideshow a.next{
 	right:0;
 }
-a.prev{
+.slideshow a.prev{
 	left:0;
 }
-a.prev:hover{
+.slideshow a.prev:hover{
 	background: url(images/arrow-prev.png) 0 50% no-repeat;
 	opacity:1;
 }
-a.next:hover{
+.slideshow a.next:hover{
 	background: url(images/arrow-next.png) 100% 50% no-repeat;
 	opacity:1;
 }
@@ -704,6 +704,49 @@ ul.news-wrap li p{
 
 /* --------------------------------------------------------------------------------------------------- */
 
+/* PAGINATION */
+
+.pagination { margin: 0 }
+
+.comments-pagination {
+	margin-bottom: 30px;
+	margin-top: -20px;
+}
+
+	.pagination a, .pagination span {
+		border: 1px solid transparent;
+		color: #8059B3;
+		display: inline-block;
+		margin: 0 8px 0 0;
+		padding: 2px 8px 4px;
+	}
+
+	.comments-pagination a, .comments-pagination span {
+		margin-right: 5px;
+		padding-bottom: 3px;
+	}
+
+	.ie7 .pagination li, .ie7 .pagination span { display: inline; }
+
+	.pagination .current {
+		background: #8059B3;
+		color: #ffffff;
+		padding: 2px 7px 4px;
+	}
+
+	.comments-pagination .current { padding-bottom: 3px; }
+
+		.pagination a:hover, .comments-pagination a:hover {
+			border-color: #8059B3;
+			color: #9999FF;
+		}
+
+	.pagination .next, .pagination .prev { border: none; }
+	
+/* END PAGINATION */
+
+/* --------------------------------------------------------------------------------------------------- */	
+
 /* WIDGET */
 .reservation-widget{
 	background:#333;
@@ -739,7 +782,7 @@ ul.news-wrap li p{
 	color: #40454D;
     font-size: 24px;
     margin: 20px -20px 10px;
-    padding: 15px 20px 14px;
+    padding: 15px 20px 0;
 }
 .single-article-content blockquote {
            background: url("images/quote.png") no-repeat scroll left top transparent;
