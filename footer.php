@@ -18,17 +18,6 @@
     </div>
   </footer>
 </div>
-<!-- /wrapper -->
-<script src="<?php bloginfo('template_url'); ?>/js/jquery.js"></script>
-<!--Cufon-->
-<script src="<?php bloginfo('template_url'); ?>/fonts/cufon-yui.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/fonts/helvetica.cufonfonts.js"></script>
-<!--slideshow cycle-->
-<script src="<?php bloginfo('template_url'); ?>/js/jquery.cycle.all.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/jquery.easing.1.3.js"></script>
-<!--Carousel-->
-<script src="<?php bloginfo('template_url'); ?>/js/jquery.bxSlider.min.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/custom.js"></script>
 
 <?php wp_footer(); ?>
 </body>

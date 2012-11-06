@@ -287,7 +287,7 @@ sub { vertical-align: bottom; font-size: 0.6em; }
 	width:960px;
 	height:378px;
 }
-.slideshow a.next, .slideshow a.prev{
+.wrap-slide a.next, .wrap-slide a.prev{
 	position:absolute;
 	z-index:12;
 	width:480px;
@@ -311,17 +311,17 @@ sub { vertical-align: bottom; font-size: 0.6em; }
 	padding:20px;
 	font-size:16px;
 }
-.slideshow a.next{
+.wrap-slide a.next{
 	right:0;
 }
-.slideshow a.prev{
+.wrap-slide a.prev{
 	left:0;
 }
-.slideshow a.prev:hover{
+.wrap-slide a.prev:hover{
 	background: url(images/arrow-prev.png) 0 50% no-repeat;
 	opacity:1;
 }
-.slideshow a.next:hover{
+.wrap-slide a.next:hover{
 	background: url(images/arrow-next.png) 100% 50% no-repeat;
 	opacity:1;
 }
