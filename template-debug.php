@@ -17,8 +17,8 @@ get_header();
 		$data_r_sans = htmlspecialchars($data_r, ENT_QUOTES); 
 		echo $data_r_sans; 
 		
-		global $data; //fetch options stored in $data
-		echo $data['footer_text']; //get $data['id'] then echo the value
+		//global $data; //fetch options stored in $data
+		//echo $data['footer_text']; //get $data['id'] then echo the value
 		?>
 		</pre>
 	
