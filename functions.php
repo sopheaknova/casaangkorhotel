@@ -56,8 +56,8 @@ add_action('after_setup_theme', 'sp_framework_setup');
 /*	Load Parts
 /* ---------------------------------------------------------------------- */
 
-// Add theme options
-//include( SP_BASE_DIR . 'framework/admin.php' );
+// Add SMOF admin options
+require_once (SP_BASE_DIR . 'framework/admin/index.php');
 
 // Add meta boxes
 include( SP_BASE_DIR . 'framework/meta-box/class.php' );
