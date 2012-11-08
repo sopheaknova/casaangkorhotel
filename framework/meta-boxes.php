@@ -20,13 +20,13 @@ global $meta_boxes, $pagenow;
 $meta_boxes = array();
 
 /* ---------------------------------------------------------------------- */
-/*	General for Page
+/*	General for Page and CPT room
 /* ---------------------------------------------------------------------- */
 
 $meta_boxes[] = array(
 	'id'       => 'heading-image-setting',
 	'title'    => __('Heading image option', 'sp_framework'),
-	'pages'    => array('page'),
+	'pages'    => array('page', 'room'),
 	'context'  => 'normal',
 	'priority' => 'high',
 	'fields'   => array(
@@ -68,6 +68,52 @@ $meta_boxes[] = array(
 			'type' => 'text',
 			'std'	=> '',
 		)
+	)
+);
+
+/*------------------------------------------------------------------------*/
+/* post
+/*------------------------------------------------------------------------*/
+
+$meta_boxes[] = array(
+	'id'      => 'date-post-settings',
+	'title'   => __('Offer valide date', 'sp_framework'),
+	'pages'   => array('post'),
+	'context' => 'normal',
+	'priority'=> 'high',
+	'fields'  => array(
+		// DATE
+		array(
+			'name' => 'Start Date :',
+			'id'   => "{$prefix}date_start",
+			'type' => 'date',
+			'desc' => 'just select the start date',
+
+			// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
+			'js_options' => array(
+				'appendText'      => '(dd-mm-yyyy)',
+				'dateFormat'      => 'dd M, yy',
+				'changeMonth'     => true,
+				'changeYear'      => true,
+				'showButtonPanel' => true,
+			),
+		),
+		// DATETIME
+		array(
+			'name' => 'End Date :',
+			'id'   => $prefix . 'date_end',
+			'type' => 'date',
+			'desc' => 'please select your end date',
+
+			// jQuery datetime picker options. See here http://trentrichardson.com/examples/timepicker/
+			'js_options' => array(
+				'appendText'     => '(dd-mm-yyyy)',
+				'dateFormat'     => 'dd M, yy',
+				'changeMonth'    => true,
+				'changeYear'     => true,
+				'showButtonPanel'=> true,
+ 			),
+		),
 	)
 );
 

@@ -26,6 +26,7 @@ if( !function_exists('sp_framework_setup') ) {
 		add_image_size( 'blog-post', 431, null, true );
 		add_image_size( 'blog-post-thumb', 202, 135, true );
 		add_image_size( 'blog-post-small', 139, 105, true );
+		add_image_size( 'blog-post-room', 280, 160, true );
 		add_image_size( 'slideshow-home', 960, 402, true );
 		add_image_size( 'heading-img-page', 960, 156, true );
 		add_image_size( 'fullwidth', 918, null, true );
@@ -66,8 +67,8 @@ include( SP_BASE_DIR . 'framework/meta-boxes.php' );
 // Add widgets
 include( SP_BASE_DIR . 'framework/widgets.php' );
 
-// Add shortcodes
-//include( SP_BASE_DIR . 'framework/shortcodes.php' );
+// Add shortcodes function
+include( SP_BASE_DIR . 'framework/shortcodes.php' );
 
 // Add custom functions
 include( SP_BASE_DIR . 'framework/custom-functions.php' );
@@ -156,17 +157,6 @@ function sp_framework_enqueue_scripts() {
 }
 add_action('wp_print_scripts', 'sp_framework_enqueue_scripts');
 
-// Backend Scripts
-function sp_framework_admin_scripts( $hook ) {
-
-	if( $hook == 'post.php' || $hook == 'post-new.php' ) {
-		wp_register_script( 'tinymce_scripts', SP_BASE_URL . 'functions/tinymce/js/scripts.js', array('jquery'), false, true );
-		wp_enqueue_script('tinymce_scripts');
-	}
-
-}
-//add_action('admin_enqueue_scripts', 'sp_framework_admin_scripts');
-
 // This function is used in processing images (cutting, cropping, zoom)
 if ( !function_exists('sp_process_image') ) {
     function sp_process_image( $img_source, $img_width, $img_height, $zc = 1, $q = 100 ) {
@@ -233,6 +223,23 @@ function sp_framework_auto_excerpt_more( $more ) {
 
 }
 add_filter('excerpt_more', 'sp_framework_auto_excerpt_more');
+
+// Empty Pragraph Fix
+add_filter('the_content', 'sp_shortcode_empty_paragraph_fix');
+function sp_shortcode_empty_paragraph_fix($content)
+{   
+	$array = array (
+		'<p>[' => '[', 
+		']</p>' => ']', 
+		']<br />' => ']'
+	);
+
+	$content = strtr($content, $array);
+
+	return $content;
+}
+
+add_filter( 'widget_text', 'shortcode_unautop');
 
 // Enable shortcodes in text widgets
 add_filter('widget_text', 'do_shortcode');
