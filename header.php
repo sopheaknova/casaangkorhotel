@@ -1,3 +1,8 @@
+<?php
+	/* get theme options for further processing */
+	global $data; 
+?>
+
 <!DOCTYPE html>
 <head>
 
@@ -7,8 +12,9 @@
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-
-<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" type="image/x-icon" /> 
+<?php if($data['casa_favico']) : ?>
+<link rel="shortcut icon" href="<?php echo $data['casa_favico']; ?>" type="image/x-icon" /> 
+<?php endif; ?>
 
 <!--[if lt IE 9]>
 <script src="<?php bloginfo('template_url'); ?>/js/IE9.js"></script>
@@ -26,16 +32,16 @@
   	<div class="logo">
 	  	<h2>
         <a href="<?php echo home_url('/'); ?>" title="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>">
-            <img src="<?php bloginfo('template_url'); ?>/images/logo.jpg" alt="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>">
+            <img src="<?php echo $data['casa_logo']; ?>" alt="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>">
         </a>
         </h2>
   	</div>
   	<div class="info-top">
-		<span class="tel">T: +855 63 963 658-9<br/>
-							&nbsp;(855) 63 966 234
+		<span class="tel"><?php echo $data['tel_1']; ?><br/>
+							&nbsp;<?php echo $data['tel_2']; ?>
 		</span>
-		<span class="addr">Oum Khun(St.) Mondul I village, Svay Dangkum <br>
-			Siem Reap, Cambodia <a href="#" class="marker-icon">View Map</a>
+		<span class="addr"><?php echo $data['address']; ?> <br>
+			<?php echo $data['province']; ?>, <?php echo $data['country']; ?> <a href="<?php echo get_page_link( sp_get_page_by_slug($data['contact_page']) ); ?>" class="marker-icon">View Map</a>
         </span>
   	</div>
     </div>
@@ -45,7 +51,7 @@
   	<div class="inner">
   	<?php echo sp_framework_main_navigation(); ?>
     <div class="booking-top">
-    	<a href="#" class="button dark-purple">Book Now</a>
+    	<a href="#" class="button dark-purple"><?php echo $data['booking_btn_txt']; ?></a>
     </div>
     </div>
   </nav>
