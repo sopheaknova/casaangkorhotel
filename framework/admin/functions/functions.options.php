@@ -132,6 +132,12 @@ $of_options[] = array( "name" => "Booking button text",
 					"id" => "booking_btn_txt",
 					"std" => "Booking",
 					"type" => "text"); 	
+$of_options[] = array( "name" => "Select Category Latest Offer",
+					"desc" => "A list of all the categories being used on the site.",
+					"id" => "latest-offer_category",
+					"std" => "Select a category:",
+					"type" => "select",
+					"options" => $of_categories);
 					
 // Post Setting
 $of_options[] = array( "name" => "Post Setting",
@@ -179,7 +185,7 @@ $of_options[] = array( "name" => "Effect",
 					"type" => "select",
 					"options" => $cycle_effects);
 
-$of_options[] = array( "name" => "Easing",
+$of_options[] = array( "name" => "Easiang",
 					"desc" => "easing method for transitions <a href='http://ralphwhitbeck.com/demos/jqueryui/effects/easing'>more info</a>",
 					"id" => "cycle_ease",
 					"std" => "easeInOutBack",
@@ -320,7 +326,7 @@ $of_options[] = array( "name" => "Custom Expedia logo upload",
 					"mod" => "min",
 					"type" => "media");	
 					
-$of_options[] = array( "name" => "Link to Tripadvisor",
+$of_options[] = array( "name" => "Link to Expedia",
 					"desc" => "Enter the link or URL for Tripadvisor",
 					"id" => "expedia_link",
 					"std" => "http://www.expedia.com/Siem-Reap-Hotels-Casa-Angkor-Hotel.h2435217.Hotel-Information",

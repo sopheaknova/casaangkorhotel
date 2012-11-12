@@ -11,6 +11,7 @@ Template Name: Latest Offer
                 <?php while (have_posts()): the_post() ;?>
 
     	        <h2 class="page-title"><?php the_title();?></h2>
+              
             
                 <div class="single-article-content">
             	   <?php the_content();?>	
@@ -20,8 +21,9 @@ Template Name: Latest Offer
           <!--end of static page-->
           
           <?php global $wp_query; ?>
+
           <?php $paged = (empty($wp_query->query_vars['paged'])) ? 1 : $wp_query->query_vars['paged'];?>
-          <?php  query_posts(array('post_type'=>'post','posts_per_page' => 4, 'cat'=> 6, 'paged' => $paged)); //,'artist'=>'KEJAJ' ?>
+          <?php  query_posts(array('post_type'=>'post','posts_per_page' => 4, 'category_name'=> $data['latest-offer_category'], 'paged' => $paged)); //,'artist'=>'KEJAJ' ?>
           <?php if (have_posts()): ?> 
           <?php while(have_posts()): the_post(); ?>
             <div class="article-item">
