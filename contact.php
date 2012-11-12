@@ -2,6 +2,7 @@
 /*
 Template Name: Contact
 */
+global $data;
 ?>
 <?php  get_header();?>
 <?php include 'includes/heading-subpage.php'; ?>
@@ -71,16 +72,16 @@ Template Name: Contact
   		<!---this is for static -->
     	<div class="cat-article">
         <center>
-    	  <h2 class="page-title">Contact</h2>
+    	  <h2 class="page-title"><?php echo $data['contact_page']; ?></h2>
             
           <div class="single-article-content">
-            	<h4>Casa Angkor Hotel</h4>
-                <p>
-                Oum Khun (St.), Mondul 1 Village, Sangkat Svay Dangkum, Siem Reap City, <br />
-                Siem Reap, Cambodia<br />
-                Tel: +855 63 963 658-9, (855) 63 966 234 <br />
-                Fax: +855 63 963 657 <br />
-                Email: reservation@casaangkorhotel.com</p>
+            	<h4><?php bloginfo("name");   // get site title of website?></h4>
+                <p><?php echo $data['address'] ;?>
+                <br />
+                <?php echo $data['province'].' , '.$data['country']."." ;?><br />
+                Tel: <?php echo $data['tel_1'].' , '.$data['tel_2'] ;?>  <br />
+                Fax:  <?php echo $data['fax'] ;?><br />
+                Email: <?php echo $data['email'] ;?></p>
           </div>
           <!--/.single-article-content -->
           </center>

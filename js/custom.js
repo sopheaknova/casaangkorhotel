@@ -24,20 +24,7 @@ jQuery(document).ready(function($) {
 		});	
 	});
 
-//Featured Slideshow
-$(".slideshow").cycle({
-		fx: 	'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-		speed:    2500,
-		delay: 4000,
-		pause:	1,
-		pager:	'#nav',
-		prev:   '.prev', 
-    	next:   '.next',
-		before:     function() {
-            $('#caption h3').html(this.alt);
-        }
-	});
-	
+
 //Room detail slideshow
 $(".room-slide").cycle({
 	fx: 	'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...

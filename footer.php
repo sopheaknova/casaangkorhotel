@@ -1,3 +1,4 @@
+  <?php global $data;?>
   <footer id="footer">
    <nav class="nav-footer">
     <div class="inner">
@@ -7,13 +8,14 @@
     
    <div class="inner"> 
     <div class="copy-right">
-        &copy;&nbsp;Casa Angkor Hotel, All right Reserved
+        &copy;&nbsp;<?php echo $data['copyrights'];?>
     </div><!--/#End of copy right-->
     <div class="social">
-        <a href="#"><img src="<?php bloginfo('template_url'); ?>/images/social/facebook.jpg" alt="facebook" /></a>
-        <a href="#"><img src="<?php bloginfo('template_url'); ?>/images/social/trip.jpg" alt="tripadvisor" /></a>
-        <a href="#"><img src="<?php bloginfo('template_url'); ?>/images/social/agoda.jpg" alt="agoda" /></a>
-        <a href="#"><img src="<?php bloginfo('template_url'); ?>/images/social/exp.jpg" alt="expedia.cumumy" /></a>
+       <?php echo $data['facebook_link'] == ''? '' : "<a href='". $data['facebook_link']."'><img src='". $data['facebook_logo']."' title='".'facebook'."' /></a>";?>
+       <?php echo $data['tripadvisor_link'] == ''? '' : "<a href='". $data['tripadvisor_link']."'><img src='". $data['tripadvisor_logo']."' title='".'tripadvisor'."' /></a>";?>
+       <?php echo $data['agoda_link'] == ''? '' : "<a href='". $data['agoda_link']."'><img src='". $data['agoda_logo']."' title='".'agoda'."' /></a>";?>
+       <?php echo $data['expedia_link'] == ''? '' : "<a href='". $data['expedia_link']."'><img src='". $data['expedia_logo']."' title='".'expedia.cumumy'."' /></a>";?>
+    
     </div><!--/#End of Social Network-->
     </div>
   </footer>
