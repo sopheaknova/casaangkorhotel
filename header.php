@@ -10,6 +10,20 @@
 
 <title><?php wp_title('|', true, 'right'); ?></title>
 
+<?php if ($data['disable_share'] == '') { ?>
+<meta property="og:title" content="<?php wp_title('', true, 'right'); ?>"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="<?php the_permalink(); ?>"/>
+<?php if( is_home() || is_front_page() ) { ?>
+<meta property="og:image" content="<?php if($data['casa_logo'] != '') { echo $data['casa_logo']; } else { echo SP_BASE_URL .'images/logo.jpg';} ?>"/>
+<meta property="og:description" content="<?php bloginfo('description'); ?>"/>
+<?php } elseif (is_single() || is_page() ) { if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<meta property="og:image" content="<?php echo sp_get_post_image('blog-post'); ?>"/>
+<meta property="og:description" content="<?php the_excerpt_rss(); ?>"/>
+<?php endwhile; endif; wp_reset_query(); } ?>
+<meta property="og:site_name" content="<?php echo bloginfo('name'); ?>"/>
+<?php } ?>
+
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php if($data['casa_favico']) : ?>

@@ -136,6 +136,88 @@ if ( !function_exists('sp_framework_pagination') ) {
 }
 
 /* ---------------------------------------------------------------------- */
+/*	Share post/page with Tweeter, g plush and facebook
+/* ---------------------------------------------------------------------- */
+if ( !function_exists('sp_show_post_share') ) {
+	
+function sp_show_post_share() { ?>
+    <?php if($data['disable_share'] == '') { ?>
+	                <div class="cat-article-share">
+		<?php if ($data['share_twitter'] == '') { ?>
+            <div class="cat-sh-twitter">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php the_permalink(); ?>" data-count="vertical" data-lang="en">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+            </div> <!--Twitter Button-->
+	    <?php } ?>
+
+		<?php if ($data['share_gplus']  == '') { ?>
+            <div class="cat-sh-gplus">
+<!-- Place this tag where you want the +1 button to render -->
+<div class="g-plusone" data-size="tall" data-href="<?php the_permalink(); ?>"></div>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+           </div> <!--google plus Button-->
+<?php } ?>
+
+<?php if ($data['share_facebook'] == '') { ?>
+            <div class="cat-sh-facebook">
+                <iframe src="//www.facebook.com/plugins/like.php?locale=en_US&href=<?php the_permalink(); ?>&amp;send=false&amp;layout=box_count&amp;width=44&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=62" scrolling="no" frameborder="0" style="border:none; overflow:hidden; margin: auto; width: 44px; height:62px;" allowTransparency="true"></iframe>
+            </div> <!--facebook Button-->
+	    <?php } ?>
+        </div> <!--article Share-->
+		<?php }		
+	}
+
+}
+
+/* ---------------------------------------------------------------------- */
+/*	Get image and place it in og: tag to be share
+/* ---------------------------------------------------------------------- */
+if ( !function_exists('sp_get_post_image') ) {
+function sp_get_post_image($size = 'thumbnail'){
+		global $post;
+		$image = '';
+		//get the post thumbnail
+		$image_id = get_post_thumbnail_id($post->ID);
+		$image = wp_get_attachment_image_src($image_id,  
+		$size);
+		$image = $image[0];
+		if ($image) return $image;
+		//if the post is video post and haven't a feutre image
+		$type = get_post_format();
+		$vtype = get_post_meta($post->ID, 'sp_video_type', true);
+		$vId = get_post_meta($post->ID, 'sp_video_id', true);
+		if($type == 'video') {
+						if($vtype == 'youtube') {
+						  $image = 'http://img.youtube.com/vi/'.$vId.'/0.jpg';
+						} elseif ($vtype == 'vimeo') {
+						$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$vId.php"));
+						  $image = $hash[0]['thumbnail_large'];
+						} elseif ($vtype == 'daily') {
+						  $image = 'http://www.dailymotion.com/thumbnail/video/'.$vId;
+						}
+				}
+		if ($image) return $image;
+		//If there is still no image, get the first image from the post
+		return sp_get_first_image();
+		}
+		function sp_get_first_image() {
+		  global $post, $posts;
+		  $first_img = '';
+		  ob_start();
+		  ob_end_clean();
+		  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		  $first_img = $matches[1][0];
+		
+		  return $first_img;
+		}
+}
+
+/* ---------------------------------------------------------------------- */
 /*	Get page ID
 /* ---------------------------------------------------------------------- */
 if ( !function_exists('sp_get_page_by_slug') ) {

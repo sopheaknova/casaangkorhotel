@@ -26,6 +26,9 @@ if( !function_exists('sp_framework_setup') ) {
 		add_image_size( 'blog-post', 431, null, true );
 		add_image_size( 'blog-post-thumb', 202, 135, true );
 		add_image_size( 'blog-post-small', 139, 105, true );
+		//add_image_size( 'thumbnail', 139, 105, true ); need to find and replace blog-post, blog-post-thumb, blog-post-small
+		//add_image_size( 'medium', 202, 135, true );
+		//add_image_size( 'large', 431, null, true );
 		add_image_size( 'blog-post-room', 280, 160, true );
 		add_image_size( 'slideshow-home', 960, 402, true );
 		add_image_size( 'heading-img-page', 960, 156, true );

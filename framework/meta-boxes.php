@@ -85,7 +85,7 @@ $meta_boxes[] = array(
 		// DATE
 		array(
 			'name' => 'Start Date :',
-			'id'   => "{$prefix}date_start",
+			'id'   => $prefix . "date_start",
 			'type' => 'date',
 			'desc' => 'just select the start date',
 
