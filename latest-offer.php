@@ -31,7 +31,7 @@ Template Name: Latest Offer
           	     	  
           	     	  	  <?php 
 							    if ( has_post_thumbnail() ) {
-							       the_post_thumbnail('blog-post-thumb');  
+							       the_post_thumbnail('medium');  
 						  }  ?>
           	     	  
           	     </div><!--/end one_fourth-->  

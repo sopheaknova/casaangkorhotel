@@ -18,7 +18,7 @@
 <meta property="og:image" content="<?php if($data['casa_logo'] != '') { echo $data['casa_logo']; } else { echo SP_BASE_URL .'images/logo.jpg';} ?>"/>
 <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
 <?php } elseif (is_single() || is_page() ) { if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<meta property="og:image" content="<?php echo sp_get_post_image('blog-post'); ?>"/>
+<meta property="og:image" content="<?php echo sp_get_post_image('large'); ?>"/>
 <meta property="og:description" content="<?php the_excerpt_rss(); ?>"/>
 <?php endwhile; endif; wp_reset_query(); } ?>
 <meta property="og:site_name" content="<?php echo bloginfo('name'); ?>"/>
