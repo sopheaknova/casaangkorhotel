@@ -251,14 +251,14 @@ $of_options[] = array( "name" => "Select a Contact page",
 $of_options[] = array( "name" => "Latitude",
 					"desc" => "Latitude of google map see <a href='http://itouchmap.com'>itouchmap.com</a>",
 					"id" => "map_lat",
-					"std" => "13.308023",
+					"std" => "13.354016",
 					"type" => "text"
 					);
 
 $of_options[] = array( "name" => "Longitude",
 					"desc" => "Longitude of google map see <a href='http://itouchmap.com'>itouchmap.com</a>",
 					"id" => "map_long",
-					"std" => "103.842773",
+					"std" => "103.855777",
 					"type" => "text"
 					);										
 					
