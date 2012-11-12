@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 	/* get theme options for further processing */
 	global $data; 
