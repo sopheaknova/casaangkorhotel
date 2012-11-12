@@ -63,7 +63,7 @@ Template Name: Latest Offer
                 <div class="nav-next"><?php previous_posts_link('Newer posts →'); ?></div>
           </div>  
           <?php else: ?>
-		  <h4>We cannot found this page.</h4> 
+		  <h4><?php _e( 'Sorry, currently there are no new promotions or offers. We will update soon in each season.', 'sp_framework' ); ?></h4>
 	      <?php endif; ?>
           
           </div><!-- /.single-article-content -->

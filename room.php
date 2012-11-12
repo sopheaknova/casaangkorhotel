@@ -18,7 +18,7 @@ Template Name: Rooms
            <?php endif ;?>
            <!--end static page rooms-->
              
-              <?php  query_posts(array('post_type'=>'room','posts_per_page' => 4)); //,'artist'=>'KEJAJ' ?>
+              <?php  query_posts(array('post_type'=>'room','posts_per_page' => 8)); ?>
               <?php if (have_posts()): ?> 
               <?php while(have_posts()): the_post(); ?>
 	          <div class="article-item">
@@ -46,7 +46,7 @@ Template Name: Rooms
 	          <?php endwhile;?>
          
               <?php else: ?>
-		      <h4>We cannot found this page.</h4> 
+		      <h4><?php _e( 'Sorry, currently we are making decoration our rooms. We will present our room soon.', 'sp_framework' ); ?></h4> 
 	          <?php endif; ?>
                          
           </div><!-- /.single-article-content -->

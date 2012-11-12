@@ -41,7 +41,7 @@
 		
                 <article id="post-0" class="post no-results not-found">
             
-                    <h3><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for...', 'sp_framework' ); ?></h3>
+                    <h3><?php _e( 'Sorry, currently there are no News or Events. We will update soon in each season', 'sp_framework' ); ?></h3>
     
                 </article><!-- end .hentry -->
 
