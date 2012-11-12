@@ -38,9 +38,6 @@
              <div class="single-article-content">
                  
                   <?php the_content();?>
-                  <div class="shared">
-                         <b>Love to share: </b><img src="<?php bloginfo('template_url') ;?>/images/room/shared.gif" alt="" />
-                  </div>
           
              </div> <!-- /.single-article-content -->
             <?php endwhile;?>

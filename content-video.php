@@ -20,7 +20,7 @@
 <div class="one_third last">
     <h4 class="date"><?php  echo get_the_date() ; ?></h4>
     <small>posted by: <?php echo get_the_author(); ?></small>
-    <div class="shared-vert"><b>Love to share: </b><br /><img src="<?php echo SP_BASE_URL; ?>images/room/shared-verticle.gif" alt="" /></div>
+    <div class="shared-vert"><b><?php echo $data['share_txt']; ?> </b><br /><?php sp_show_post_share();?></div>
 </div>
 <div class="clear"></div>
 <?php endif;?>

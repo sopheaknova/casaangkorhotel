@@ -100,7 +100,7 @@
   	<div class="inner">
   	<?php echo sp_framework_main_navigation(); ?>
     <div class="booking-top">
-    	<a href="#" class="button dark-purple"><?php echo $data['booking_btn_txt']; ?></a>
+    	<a href="<?php echo $data['booking_btn_link'] == '' ? '#' : $data['booking_btn_link']; ?>" class="button dark-purple" target="_blank"><?php echo $data['booking_btn_txt']; ?></a>
     </div>
     </div>
   </nav>
