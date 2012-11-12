@@ -23,10 +23,7 @@ if( !function_exists('sp_framework_setup') ) {
 		// Post thumbnails
 		add_theme_support('post-thumbnails');
 
-		/*add_image_size( 'blog-post', 431, null, true );
-		add_image_size( 'blog-post-thumb', 202, 135, true );
-		add_image_size( 'blog-post-small', 139, 105, true );*/
-		add_image_size( 'thumbnail', 139, 105, true ); //need to find and replace blog-post, blog-post-thumb, blog-post-small
+		add_image_size( 'thumbnail', 139, 105, true );
 		add_image_size( 'medium', 202, 135, true );
 		add_image_size( 'large', 431, null, true );
 		add_image_size( 'blog-post-room', 280, 160, true );
@@ -246,3 +243,62 @@ add_filter( 'widget_text', 'shortcode_unautop');
 
 // Enable shortcodes in text widgets
 add_filter('widget_text', 'do_shortcode');
+
+// Custom logo login
+function my_custom_login_logo() {
+    echo '<style type="text/css">
+        .login h1 a { background-image:url('.SP_BASE_URL.'images/custom-login-logo.gif) !important; height:107px !important; background-size: 310px 107px !important;}
+    </style>';
+}
+
+add_action('login_head', 'my_custom_login_logo');
+
+//  Remove error message login
+add_filter('login_errors', create_function('$a', "return null;"));
+
+
+//  Remove wordpress link on admin login logo
+function remove_link_on_admin_login_info() {
+     return  get_bloginfo('url');
+}
+  
+add_filter('login_headerurl', 'remove_link_on_admin_login_info');
+
+//	Remove logo and other items in Admin menu bar
+function remove_admin_bar_links() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('comments');
+	$wp_admin_bar->remove_menu('wp-logo');
+}
+add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+
+//  Remove wordpress version generation
+function remove_version_info() {
+     return '';
+}
+add_filter('the_generator', 'remove_version_info');
+
+
+//  Set favicons for backend code
+function adminfavicon() {
+echo '<link rel="icon" type="image/x-icon" href="'.SP_BASE_URL.'favicon.ico" />';
+}
+add_action( 'admin_head', 'adminfavicon' );
+
+// unregister all default WP Widgets
+function unregister_default_wp_widgets() {
+    unregister_widget('WP_Widget_Pages');
+    unregister_widget('WP_Widget_Calendar');
+    unregister_widget('WP_Widget_Archives');
+    unregister_widget('WP_Widget_Links');
+    unregister_widget('WP_Widget_Meta');
+    unregister_widget('WP_Widget_Search');
+    unregister_widget('WP_Widget_Text');
+    unregister_widget('WP_Widget_Categories');
+    unregister_widget('WP_Widget_Recent_Posts');
+    unregister_widget('WP_Widget_Recent_Comments');
+    unregister_widget('WP_Widget_RSS');
+    unregister_widget('WP_Widget_Tag_Cloud');
+	unregister_widget('WP_Nav_Menu_Widget');
+}
+add_action('widgets_init', 'unregister_default_wp_widgets', 1);
