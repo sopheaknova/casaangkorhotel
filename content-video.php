@@ -1,3 +1,4 @@
+<?php global $data; ?>
 <?php
 	    $type = get_post_meta($post->ID, 'sp_video_type', true);
 	    $id = get_post_meta($post->ID, 'sp_video_id', true);
@@ -19,8 +20,14 @@
     
 <div class="one_third last">
     <h4 class="date"><?php  echo get_the_date() ; ?></h4>
+    <?php if ($data['disable_post_meta'] == "no") : ?>
     <small>posted by: <?php echo get_the_author(); ?></small>
-    <div class="shared-vert"><b><?php echo $data['share_txt']; ?> </b><br /><?php sp_show_post_share();?></div>
+    <?php endif; ?>
+    <?php if ($data['disable_share_post'] == "no") : ?>
+    <div class="shared-vert"><b><?php echo $data['share_txt']; ?> </b>
+    <?php sp_show_post_share();?>
+    </div>
+    <?php endif; ?>
 </div>
 <div class="clear"></div>
 <?php endif;?>

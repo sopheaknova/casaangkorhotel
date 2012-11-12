@@ -178,8 +178,8 @@ $of_options[] = array( "name" => "Social Share text",
 					"type" => "text"
 					);	
 
-$of_options[] = array( "name" => "Disable post meta",
-					"desc" => "Show or hide Posted By",
+$of_options[] = array( "name" => "Disable Share button",
+					"desc" => "Show or hide Share button for each news/events and latest offer",
 					"id" => "disable_share_post",
 					"std" => "no",
 					"type" => "radio",
@@ -187,6 +187,16 @@ $of_options[] = array( "name" => "Disable post meta",
 						'yes' => 'Yes',
 						'no' => 'No')
 					);
+					
+$of_options[] = array( "name" => "Disable post meta",
+					"desc" => "Show or hide Posted By",
+					"id" => "disable_post_meta",
+					"std" => "no",
+					"type" => "radio",
+					"options" => array(
+						'yes' => 'Yes',
+						'no' => 'No')
+					);					
 					
 $of_options[] = array( "name" => "View room detail text",
 					"desc" => "Enter the text to present room detail",
