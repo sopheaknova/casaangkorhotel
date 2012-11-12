@@ -139,6 +139,19 @@ $of_options[] = array( "name" => "Select Category Latest Offer",
 					"type" => "select",
 					"options" => $of_categories);
 					
+$of_options[] = array( "name" => "Select Page Terms and Condition",
+					"desc" => "Being Terms and Condition being used on the site.",
+					"id" => "terms_page",
+					"std" => "Select page:",
+					"type" => "select",
+					"options" => $of_pages);
+$of_options[] = array( "name" => "Select Page Concellation Policy",
+					"desc" => "Being Concellation Policy being used on the site.",
+					"id" => "policy_page",
+					"std" => "Select page:",
+					"type" => "select",
+					"options" => $of_pages);					
+					
 // Post Setting
 $of_options[] = array( "name" => "Post Setting",
 					"type" => "heading");
@@ -159,8 +172,8 @@ $of_options[] = array( "name" => "Social Share text",
 
 $of_options[] = array( "name" => "Disable post meta",
 					"desc" => "Show or hide Posted By",
-					"id" => "no",
-					"std" => "Love to share:",
+					"id" => "disable_share_post",
+					"std" => "no",
 					"type" => "radio",
 					"options" => array(
 						'yes' => 'Yes',
@@ -215,7 +228,21 @@ $of_options[] = array( "name" => "Select a Contact page",
 					"id" => "contact_page",
 					"std" => "",
 					"type" => "select",
-					"options" => $of_pages);					
+					"options" => $of_pages);
+					
+$of_options[] = array( "name" => "Latitude",
+					"desc" => "Latitude of google map see <a href='http://itouchmap.com'>itouchmap.com</a>",
+					"id" => "map_lat",
+					"std" => "13.308023",
+					"type" => "text"
+					);
+
+$of_options[] = array( "name" => "Longitude",
+					"desc" => "Longitude of google map see <a href='http://itouchmap.com'>itouchmap.com</a>",
+					"id" => "map_long",
+					"std" => "103.842773",
+					"type" => "text"
+					);										
 					
 $of_options[] = array( "name" => "Address",
 					"desc" => "Enter your company or organization address",

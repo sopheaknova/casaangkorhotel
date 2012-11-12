@@ -12,7 +12,9 @@ Template Name: Contact
 	<script type="text/javascript">					
 	  jQuery(document).ready(function ($)
 		{
-			var myLatlng = new google.maps.LatLng(13.3671, 103.8528);
+			var latitude = <?php echo $data['map_lat'];?>;
+			var longitude = <?php echo $data['map_long'];?>;
+			var myLatlng = new google.maps.LatLng(latitude, longitude);
 			var myOptions = {							  
 			  zoom: 14,
 			  center: myLatlng,

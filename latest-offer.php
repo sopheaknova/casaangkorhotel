@@ -49,9 +49,14 @@ Template Name: Latest Offer
                        
                 	   <p> Offer valid between:<br />
 					   <?php echo $date_start.' and '.$date_end ;?></p>
-					   
-					   <p><a href="#" class="arrow-link">Terms and Conditions</a><br />
-					  <a href="#" class="arrow-link">Cancellation Policy</a></p>
+					   <?php 
+					   	$page_term_slug = get_page_by_path($data['terms_page']);
+			 			$page_policy_slug = get_page_by_path($data['policy_page']);
+						$title_term = get_the_title($page_term_slug->ID);
+			 			$title_policy = get_the_title($page_policy_slug->ID);
+			 		   ?>
+					   <p><a href="<?php echo get_page_link($page_term_slug->ID); ?>" class="arrow-link"><?php echo $title_term; ?></a><br />
+					  <a href="<?php echo get_page_link($page_policy_slug->ID); ?>" class="arrow-link"><?php echo $title_policy; ?></a></p>
                     </div>
                 </div> 
                 <div class="clear"></div>
