@@ -113,8 +113,8 @@ function sp_framework_register_scripts() {
 
 	if( !is_admin() ) {
 		wp_deregister_script('jquery');
-		//wp_register_script( 'jquery',   'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', array(), '1.7.2', false );
-		wp_register_script( 'jquery',   SP_BASE_URL . 'js/jquery.js', array(), '1.7.2', false ); 
+		wp_register_script( 'jquery',   'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', array(), '1.7.2', false );
+		//wp_register_script( 'jquery',   SP_BASE_URL . 'js/jquery.js', array(), '1.7.2', false ); 
 
 		wp_register_script( 'cufoncore',            SP_BASE_URL . 'fonts/cufon-yui.js',               array('jquery'), false, true );
 		wp_register_script( 'helveticafonts',            SP_BASE_URL . 'fonts/helvetica.cufonfonts.js',               array('jquery'), false, true );
