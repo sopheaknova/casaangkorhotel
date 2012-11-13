@@ -90,7 +90,9 @@
 							&nbsp;<?php echo $data['tel_2']; ?>
 		</span>
 		<span class="addr"><?php echo $data['address']; ?> <br>
-			<?php echo $data['province']; ?>, <?php echo $data['country']; ?> <a href="<?php echo get_page_link( sp_get_page_by_slug($data['contact_page']) ); ?>" class="marker-icon">View Map</a>
+			<?php echo $data['province']; ?>, <?php echo $data['country']; ?> 
+            <?php $page_contact_slug = get_page_by_path($data['contact_page']); ?>
+            <a href="<?php echo get_page_link($page_contact_slug->ID); ?>" class="marker-icon">View Map</a>
         </span>
   	</div>
     </div>

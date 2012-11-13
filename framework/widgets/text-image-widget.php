@@ -112,13 +112,16 @@ class text_image extends WP_Widget
 		}else {
 			if ( $title ) {
 				if ( $link ) :
-				echo $before_title . '<a href="' . $link . '">' . $title . '</a>' . $after_title;
+					echo $before_title . '<a href="' . $link . '">' . $title . '</a>' . $after_title;
+					$text = '<a href="' . $link . '"><img src="' . sp_process_image( $instance['image'], 220, '', 1, 100 ) . '" alt="' . $instance['title'] . '" /></a>';
+					echo apply_filters( 'widget_text', $text );
 				else:
-				echo $before_title . $title . $after_title;
+					echo $before_title . $title . $after_title;
+					$text = '<img src="' . sp_process_image( $instance['image'], 220, '', 1, 100 ) . '" alt="' . $instance['title'] . '" />';
+					echo apply_filters( 'widget_text', $text );
 				endif;
 			}
-		$text = '<img src="' . sp_process_image( $instance['image'], 220, '', 1, 100 ) . '" alt="' . $instance['title'] . '" />';
-		echo apply_filters( 'widget_text', $text ); 
+		 
 		}
 		
 		

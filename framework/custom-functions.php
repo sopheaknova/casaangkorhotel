@@ -216,14 +216,3 @@ function sp_get_post_image($size = 'thumbnail'){
 		  return $first_img;
 		}
 }
-
-/* ---------------------------------------------------------------------- */
-/*	Get page ID
-/* ---------------------------------------------------------------------- */
-if ( !function_exists('sp_get_page_by_slug') ) {
-	function sp_get_page_by_slug($page_name) {
-	   global $wpdb;
-		$page_name_id = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '".$page_name."'");
-		return $page_name_id;
-	}
-}
