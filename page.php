@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php include 'includes/heading-subpage.php'; ?>
+<?php get_template_part( 'includes/heading-subpage'); ?>
 
   <div class="container">
   	<div class="inner">
@@ -18,7 +18,7 @@
         </div>
         <!-- /.cat_article -->
         
-        <?php include 'includes/latest-updated.php'; ?>
+        <?php get_template_part( 'includes/latest-updated' ); ?>
         
     </div>
     <!-- /.inner -->

@@ -14,7 +14,7 @@
         </div>
         <!-- /.cat_article -->
         
-        <?php include 'includes/latest-updated.php'; ?>
+        <?php get_template_part( 'includes/latest-updated' ); ?>
         
     </div>
     <!-- /.inner -->

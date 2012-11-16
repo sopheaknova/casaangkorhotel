@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
-<?php include 'includes/featured-slide.php'; ?>
+<?php get_template_part( 'includes/featured-slide' ); ?>
 
   <div class="container">
   	<div class="inner">
     	<?php get_sidebar('home'); ?>
-        <?php include 'includes/latest-updated.php'; ?>
+        <?php get_template_part( 'includes/latest-updated' ); ?>
     </div>
     <!-- /.inner -->
   </div>

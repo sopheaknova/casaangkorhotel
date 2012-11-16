@@ -4,7 +4,7 @@ Template Name: Contact
 */
 ?>
 <?php  get_header();?>
-<?php include 'includes/heading-subpage.php'; ?>
+<?php get_template_part( 'includes/heading-subpage'); ?>
 
 <!--Map of casaankorhotel-->
 <div id="map-wide">
@@ -16,7 +16,7 @@ Template Name: Contact
 			var longitude = <?php echo $data['map_long'];?>;
 			var myLatlng = new google.maps.LatLng(latitude, longitude);
 			var myOptions = {							  
-			  zoom: 14,
+			  zoom: 16,
 			  center: myLatlng,
 			  mapTypeId: google.maps.MapTypeId.ROADMAP
 			}
