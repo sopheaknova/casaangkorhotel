@@ -25,15 +25,6 @@ jQuery(document).ready(function($) {
 	});
 
 
-//Room detail slideshow
-$(".room-slide").cycle({
-	fx: 	'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-	speed:    2500,
-	delay: 3000,
-	pause:	1,
-	
-	});
-
 //bxSlider for Latest news updated
 $(".news-wrap").bxSlider({
     displaySlideQty: 2,
@@ -89,6 +80,13 @@ $(".news-wrap").bxSlider({
 		});
 
 	})();
+	
+//Date picker
+$( "#datepicker" ).datepicker({
+            numberOfMonths: 2,
+			dateFormat: 'yy-mm-dd',
+            showButtonPanel: true
+        });	
 	
 /************************************
  * Shortcodes/framework

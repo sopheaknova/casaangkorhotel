@@ -141,15 +141,13 @@ if ( !function_exists('sp_framework_pagination') ) {
 if ( !function_exists('sp_show_post_share') ) {
 	
 function sp_show_post_share() { ?>
-    <?php if($data['disable_share'] == '') { ?>
-	                <div class="cat-article-share">
-		<?php if ($data['share_twitter'] == '') { ?>
+    <?php if($data['disable_share'] !== 'yes') { ?>
+	      <div class="cat-article-share">
+		
             <div class="cat-sh-twitter">
                 <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php the_permalink(); ?>" data-count="vertical" data-lang="en">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
             </div> <!--Twitter Button-->
-	    <?php } ?>
-
-		<?php if ($data['share_gplus']  == '') { ?>
+	    
             <div class="cat-sh-gplus">
 <!-- Place this tag where you want the +1 button to render -->
 <div class="g-plusone" data-size="tall" data-href="<?php the_permalink(); ?>"></div>
@@ -161,13 +159,10 @@ function sp_show_post_share() { ?>
   })();
 </script>
            </div> <!--google plus Button-->
-<?php } ?>
-
-<?php if ($data['share_facebook'] == '') { ?>
             <div class="cat-sh-facebook">
                 <iframe src="//www.facebook.com/plugins/like.php?locale=en_US&href=<?php the_permalink(); ?>&amp;send=false&amp;layout=box_count&amp;width=44&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=62" scrolling="no" frameborder="0" style="border:none; overflow:hidden; margin: auto; width: 44px; height:62px;" allowTransparency="true"></iframe>
             </div> <!--facebook Button-->
-	    <?php } ?>
+	
         </div> <!--article Share-->
 		<?php }		
 	}

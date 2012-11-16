@@ -101,8 +101,15 @@
   <nav class="menu-bar">
   	<div class="inner">
   	<?php echo sp_framework_main_navigation(); ?>
+    <?php if ($data['disable_booking_btn'] !== 'yes') { ?>
+    <?php 
+		$nxt_day = date('d')+1;
+		$booking_link = 'http://66.70.56.40/00000001/032/023112/dispopricev2.phtml?showPromotions=1&langue=&locale=en_GB&Clusternames=ASIAKHHTLCasa&cluster=ASIAKHHTLCasa&Hotelnames=ASIAKHHTLCasa&hname=ASIAKHHTLCasa&arrivalDateValue=' . date('Y-m-d') . '&frommonth=' . date('m') . '&fromday=' . date('d') . '&fromyear=' . date('Y') . '&tomonth=' . date('m') .'&today=' . $nxt_day .'&toyear=' . date('Y') .'&adulteresa=1&nbAdultsValue=1&AccessCode=&accessCode=&redir=BIZ-so5523q0o4&rt=1353054355';
+	?>
     <div class="booking-top">
-    	<a href="<?php echo $data['booking_btn_link'] == '' ? '#' : $data['booking_btn_link']; ?>" class="button dark-purple" target="_blank"><?php echo $data['booking_btn_txt']; ?></a>
+    <a href="#" onClick="window.open('<?php echo $booking_link; ?>', '<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>', 960, 700);" class="button dark-purple"><?php echo $data['booking_btn_txt']; ?></a>
     </div>
+    <?php } ?>     
     </div>
   </nav>
+  <p>Date: <input type="text" id="datepicker" /></p>

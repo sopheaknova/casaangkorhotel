@@ -133,11 +133,15 @@ $of_options[] = array( "name" => "Booking button text",
 					"std" => "Booking",
 					"type" => "text"); 	
 
-$of_options[] = array( "name" => "Booking button link",
-					"desc" => "Enter the URL/Link for Booking Button. e.g: http://www.fastbooking.com",
-					"id" => "booking_btn_link",
-					"std" => "",
-					"type" => "text"); 					
+$of_options[] = array( "name" => "Disable Booking button",
+					"desc" => "Show or hide Booking button",
+					"id" => "disable_booking_btn",
+					"std" => "no",
+					"type" => "radio",
+					"options" => array(
+						'yes' => 'Yes',
+						'no' => 'No')
+					);					
 					
 $of_options[] = array( "name" => "Select Category Latest Offer",
 					"desc" => "A list of all the categories being used on the site.",

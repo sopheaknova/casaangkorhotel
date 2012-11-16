@@ -269,6 +269,9 @@ sub { vertical-align: bottom; font-size: 0.6em; }
 	float: left;
 	padding: 0 1% 0 0;
 }
+#ui-datepicker-div{
+	z-index:99!important;
+}
 
 /* `FEATURE SLIDESHOW
 ----------------------------------------------------------------------------------------------------*/
