@@ -1013,6 +1013,10 @@ input[type="submit"] {
 #booking-form ul li a{
 	color:#fff;
 }
+.icon-calendar{
+	background:#F9F8EB url(images/calendar-icon.gif) 99% 2px no-repeat!important;
+	cursor:pointer;
+}
 /* END FORM */
 
 /* --------------------------------------------------------------------------------------------------- */

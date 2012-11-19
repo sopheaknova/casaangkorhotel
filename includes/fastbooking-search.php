@@ -4,11 +4,11 @@
     <ul>
     <li>
     <label name="checkindate">Check In Date: </label>
-    <input type="text" id="checkinDate" name="checkindate" />
+    <input type="text" id="checkinDate" name="checkindate" value="<?php echo date('Y-m-d'); ?>" class="icon-calendar" />
 	</li>
     <li>
     <label name="checkoutdate">Check Out Date: </label>
-    <input type="text" id="checkoutDate" name="checkoutdate" />
+    <input type="text" id="checkoutDate" name="checkoutdate" value="<?php echo date('Y-m'); ?>-<?php echo date('d')+1; ?>" class="icon-calendar" />
 	</li>
     <li>
     <label name="adulteresa">Adult: </label>
