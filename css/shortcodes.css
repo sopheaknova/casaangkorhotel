@@ -149,6 +149,12 @@ a.button{
 	-moz-border-radius:5px;
 	border-radius:5px;
 }
+a.check-available, a.cancel-resa{
+	padding:5px 10px 4px 10px;
+	border:1px solid #e0e0e0;
+	-moz-border-radius:5px;
+	border-radius:5px;
+}
 a.dark-purple{
 	background:#330055;
 	border:1px solid #330055;

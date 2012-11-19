@@ -6,6 +6,9 @@ Template Name: Latest Offer
 <?php include('includes/heading-subpage.php');?>
  <div class="container">
   	<div class="inner">
+    	<?php if ( $data['disable_booking_form'] !== 'yes') : ?>
+    	<?php get_template_part( '/includes/fastbooking-search' ); ?>
+        <?php endif; ?>
     	<div class="cat-article">
           <?php if(have_posts()) : ?>
                 <?php while (have_posts()): the_post() ;?>

@@ -968,9 +968,9 @@ form ul li label {
 input[type="text"], input[type="number"], input[type="tel"], input[type="email"],
 input[type="date"], input[type="password"], select {
 	padding: 0.5em 0.5em;
-	margin-top: 0.4em;
 	font-size: 1em;
 	color: #333;
+	background:#F9F8EB;
 	border: none;
 	border:1px solid #ccc;
 	-webkit-border-radius: 4px;
@@ -994,19 +994,24 @@ input[type="submit"] {
 	margin-left: 2%;
 }
 
-/* Booking Search Form (FastBooking) Style*/
+  /* Booking Search Form (FastBooking) Style*/
 #booking-form {
 	width:960px;
 	margin:0 auto;
 	background:#6F269E;
 	color:#fff;
+	height:70px;
 }
 #booking-form ul li{
 	display:inline-block;
-	padding: 0 10px;
+	padding: 0 6px;
 }
 #booking-form ul li label{
 	display:block;
+	font-size:11px;
+}
+#booking-form ul li a{
+	color:#fff;
 }
 /* END FORM */
 

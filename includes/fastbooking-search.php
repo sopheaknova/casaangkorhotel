@@ -12,14 +12,21 @@
 	</li>
     <li>
     <label name="adulteresa">Adult: </label>
-    <select name='adulteresa'><option value='1' selected>1</option><option value='2' >2</option><option value='3' >3</option><option value='4' >4</option></select><br>
+    <select name='adulteresa'><option value='1' selected>1</option><option value='2' >2</option><option value='3' >3</option><option value='4' >4</option></select>
+    </li>
+    <li>
+    <label name="childteresa">Child: </label>
+    <select name='childteresa'><option value='1' selected>1</option><option value='2' >2</option><option value='3' >3</option><option value='4' >4</option></select>
+    </li>
     <li>        
      <label name="AccessCode">Access code/IATA code: </label> 
      <input type='password' name='AccessCode' value=''> 
     </li>
     <li>
-    <!-- //// BUTTONS //// -->
-    <input name='B1' type='button' value='Check Availability' onclick='hhotelDispoprice(this.form)'>
+    <a href="javascript:;" onclick="hhotelDispoprice(document.idForm);" class="dark-purple check-available">Check Availability</a>
+    </li>
+    <li>
+    <a href="javascript:;" onClick="hhotelcancel('ASIAKHHTLCasa','');" class="dark-purple cancel-resa">Cancel</a>
     </li>
 	</ul>
     <SCRIPT SRC='<?php bloginfo('template_url'); ?>/js/fastbooking/fbfulltrack.js'></script>

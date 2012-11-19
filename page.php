@@ -4,7 +4,7 @@
 
   <div class="container">
   	<div class="inner">
-    
+    	
     	<div class="cat-article">
         
     		<h2 class="page-title"><?php the_title(); ?></h2>
