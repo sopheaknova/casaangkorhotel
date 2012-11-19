@@ -72,7 +72,7 @@
         </script>
 <?php }?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> onLoad='start();'>
 
 <!-- wrapper -->
 <div id="wrapper">
@@ -112,4 +112,3 @@
     <?php } ?>     
     </div>
   </nav>
-  <p>Date: <input type="text" id="datepicker" /></p>

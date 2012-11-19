@@ -141,7 +141,17 @@ $of_options[] = array( "name" => "Disable Booking button",
 					"options" => array(
 						'yes' => 'Yes',
 						'no' => 'No')
-					);					
+					);
+
+$of_options[] = array( "name" => "Disable Booking Form",
+					"desc" => "Show or hide Booking Form",
+					"id" => "disable_booking_form",
+					"std" => "no",
+					"type" => "radio",
+					"options" => array(
+						'yes' => 'Yes',
+						'no' => 'No')
+					);										
 					
 $of_options[] = array( "name" => "Select Category Latest Offer",
 					"desc" => "A list of all the categories being used on the site.",

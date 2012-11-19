@@ -125,8 +125,8 @@ function sp_framework_register_scripts() {
 		wp_register_script( 'fancybox',          SP_BASE_URL . 'js/jquery.fancybox.pack.js',                array('jquery'), false, true );
 		wp_register_script( 'cycle',             SP_BASE_URL . 'js/jquery.cycle.all.min.js',                array('jquery'), false, false );
 		wp_register_script( 'bxslider',             SP_BASE_URL . 'js/jquery.bxSlider.min.js',             	array('jquery'), false, true );
-		//wp_register_script( 'fbparam',    SP_BASE_URL . 'js/fastbooking/fbparam.js',						array('jquery'), false, false );
-		//wp_register_script( 'fblib',    SP_BASE_URL . 'js/fastbooking/fblib.js',                          array('jquery'), false, false );
+		wp_register_script( 'fbparam',    SP_BASE_URL . 'js/fastbooking/fbparam.js',						array('jquery'), false, false );
+		wp_register_script( 'fblib',    SP_BASE_URL . 'js/fastbooking/fblib.js',                          array('jquery'), false, false );
 		wp_register_script( 'jqueryuicustom',    SP_BASE_URL . 'js/jquery-ui-1.9.1.custom.min.js',			array('jquery'), false, true );
 		wp_register_script( 'custom_scripts',    SP_BASE_URL . 'js/custom.js',                              array('jquery'), false, true );
 	}
@@ -155,8 +155,8 @@ function sp_framework_enqueue_scripts() {
 		wp_enqueue_script('fancybox');
 		wp_enqueue_script('cycle');
 		wp_enqueue_script('bxslider');
-		//wp_enqueue_script('fbparam');
-		//wp_enqueue_script('fblib');
+		wp_enqueue_script('fbparam');
+		wp_enqueue_script('fblib');
 		wp_enqueue_script('jqueryuicustom');
 		wp_enqueue_script('custom_scripts');
 

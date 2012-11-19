@@ -82,7 +82,7 @@ $(".news-wrap").bxSlider({
 	})();
 	
 //Date picker
-$( "#datepicker" ).datepicker({
+$( "#checkinDate, #checkoutDate" ).datepicker({
             numberOfMonths: 2,
 			dateFormat: 'yy-mm-dd',
             showButtonPanel: true
