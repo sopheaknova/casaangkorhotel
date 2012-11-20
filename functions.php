@@ -165,14 +165,56 @@ function sp_framework_enqueue_scripts() {
 }
 add_action('wp_print_scripts', 'sp_framework_enqueue_scripts');
 
-// This function is used in processing images (cutting, cropping, zoom)
-if ( !function_exists('sp_process_image') ) {
-    function sp_process_image( $img_source, $img_width, $img_height, $zc = 1, $q = 100 ) {
-		
-		$img_source = SP_BASE_URL .'framework/scripts/timthumb.php?src='.$img_source.'&amp;w='.$img_width.'&amp;h='.$img_height.'&amp;zc='.$zc.'&amp;q='.$q;
-        return $img_source;
-    }
+// Add dynamic javascript in wp_head()
+function sp_dynamic_js() {
+	global $data; 
+	if (!is_admin()) {
+		wp_register_script( 'dynamic_scripts',    SP_BASE_URL . 'js/dynamic-script.js',                              array('jquery'), false, false );
+		wp_enqueue_script('dynamic_scripts');
+	}
+?>
+<?php 
+    if (is_home()) {?>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+			//Featured Slideshow
+			$(".slideshow").cycle({
+			   fx:   '<?php echo $data['cycle_effect'] ;?>', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+			   speed:  <?php echo $data['cycle_speed'] ;?>,
+			   delay: <?php echo $data['cycle_timeout'] ;?>,
+			   easing: '<?php echo $data['cycle_ease'] ;?>',
+			   pause:  1,
+			   pager:  '#nav',
+			   prev:   '.prev', 
+			   next:   '.next',
+			   before:     function() {
+				 $('#caption h3').html(this.alt);
+			   }
+			});
+		});
+        </script>
+<?php }?>
+
+<?php
+    if (is_singular('room')){?>
+
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+			//Room detail slideshow
+			$(".room-slide").cycle({
+			fx:   '<?php echo $data['cycle_effect'] ;?>', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+			speed:    <?php echo $data['cycle_speed'] ;?>,
+			delay: <?php echo $data['cycle_timeout'] ;?>,
+			easing: '<?php echo $data['cycle_ease'] ;?>',
+			pause:  1,
+	
+			});
+		});
+        </script>
+<?php } ?>
+<?php
 }
+add_action( 'wp_head', 'sp_dynamic_js' );
 
 // Makes some changes to the <title> tag, by filtering the output of wp_title()
 function sp_framework_filter_wp_title( $title, $separator ) {
@@ -286,6 +328,24 @@ function remove_version_info() {
 }
 add_filter('the_generator', 'remove_version_info');
 
+// Customising footer text
+function modify_footer_admin () {  
+  echo 'Created by <a href="http://www.novacambodia.com" target="_blank">novadesign</a>. Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a>';  
+}  
+add_filter('admin_footer_text', 'modify_footer_admin');  
+
+// Remove dashboard widget
+function disable_default_dashboard_widgets() {  
+    //remove_meta_box('dashboard_right_now', 'dashboard', 'core');  
+    remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');  
+    //remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  
+    remove_meta_box('dashboard_plugins', 'dashboard', 'core');  
+    //remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  
+    remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');  
+    remove_meta_box('dashboard_primary', 'dashboard', 'core');  
+    remove_meta_box('dashboard_secondary', 'dashboard', 'core');  
+}  
+add_action('admin_menu', 'disable_default_dashboard_widgets'); 
 
 //  Set favicons for backend code
 function adminfavicon() {
@@ -310,3 +370,5 @@ function unregister_default_wp_widgets() {
 	unregister_widget('WP_Nav_Menu_Widget');
 }
 add_action('widgets_init', 'unregister_default_wp_widgets', 1);
+
+

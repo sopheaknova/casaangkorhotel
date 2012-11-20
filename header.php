@@ -36,43 +36,9 @@
 <![endif]-->
 
 <?php wp_head(); ?>
-<?php 
-    if (is_home()) {?>
-        <script type="text/javascript">
-        //Featured Slideshow
-        $(".slideshow").cycle({
-           fx:   '<?php echo $data['cycle_effect'] ;?>', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-           speed:  <?php echo $data['cycle_speed'] ;?>,
-           delay: <?php echo $data['cycle_timeout'] ;?>,
-           easing: '<?php echo $data['cycle_ease'] ;?>',
-           pause:  1,
-           pager:  '#nav',
-           prev:   '.prev', 
-           next:   '.next',
-           before:     function() {
-             $('#caption h3').html(this.alt);
-           }
-        });
-        </script>
-<?php }?>
 
-<?php
-    if (is_singular('room')){?>
-
-        <script type="text/javascript">
-        //Room detail slideshow
-        $(".room-slide").cycle({
-        fx:   '<?php echo $data['cycle_effect'] ;?>', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-        speed:    <?php echo $data['cycle_speed'] ;?>,
-        delay: <?php echo $data['cycle_timeout'] ;?>,
-		easing: '<?php echo $data['cycle_ease'] ;?>',
-        pause:  1,
-
-        });
-        </script>
-<?php }?>
 </head>
-<body <?php body_class(); ?> onLoad='start();'>
+<body <?php body_class(); if ( $data['disable_booking_form'] !== 'yes') { ?> onLoad='start();'<?php } ?>>
 
 <!-- wrapper -->
 <div id="wrapper">

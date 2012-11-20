@@ -211,3 +211,12 @@ function sp_get_post_image($size = 'thumbnail'){
 		  return $first_img;
 		}
 }
+
+// This function is used in processing images (cutting, cropping, zoom)
+if ( !function_exists('sp_process_image') ) {
+    function sp_process_image( $img_source, $img_width, $img_height, $zc = 1, $q = 100 ) {
+		
+		$img_source = SP_BASE_URL .'framework/scripts/timthumb.php?src='.$img_source.'&amp;w='.$img_width.'&amp;h='.$img_height.'&amp;zc='.$zc.'&amp;q='.$q;
+        return $img_source;
+    }
+}
