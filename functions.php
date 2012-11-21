@@ -314,6 +314,12 @@ function remove_link_on_admin_login_info() {
   
 add_filter('login_headerurl', 'remove_link_on_admin_login_info');
 
+// Change login logo title
+function change_loging_logo_title(){
+	return 'Go to '.get_bloginfo('name').' Homepage';
+}
+add_filter('login_headertitle', 'change_loging_logo_title');
+
 //	Remove logo and other items in Admin menu bar
 function remove_admin_bar_links() {
 	global $wp_admin_bar;
