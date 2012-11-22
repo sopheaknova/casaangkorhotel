@@ -297,6 +297,7 @@ add_filter('widget_text', 'do_shortcode');
 // Custom logo login
 function my_custom_login_logo() {
     echo '<style type="text/css">
+		body.login{ background-color:#ffffff; }
         .login h1 a { background-image:url('.SP_BASE_URL.'images/custom-login-logo.gif) !important; height:107px !important; background-size: 310px 107px !important;}
     </style>';
 }
