@@ -671,6 +671,7 @@ ul.news-wrap li p{
     color:#ffffff;
     font-size:13px;
 	text-transform:uppercase;
+	letter-spacing:0.7px;
 }
 .menu-bar ul.menu-nav li a:hover{
     color:#330055;
@@ -1002,6 +1003,7 @@ input[type="submit"] {
 	background:#6F269E;
 	color:#fff;
 	height:70px;
+	font-family: Verdana, Geneva, sans-serif;
 }
 #booking-form ul li{
 	display:inline-block;
@@ -1017,6 +1019,9 @@ input[type="submit"] {
 .icon-calendar{
 	background:#F9F8EB url(images/calendar-icon.gif) 99% 2px no-repeat!important;
 	cursor:pointer;
+}
+.txt-small{
+	width:110px;
 }
 /* END FORM */
 

@@ -19,8 +19,8 @@
     <select name='childteresa'><option value='1' selected>1</option><option value='2' >2</option><option value='3' >3</option><option value='4' >4</option></select>
     </li>
     <li>        
-     <label name="AccessCode">Access code/IATA code: </label> 
-     <input type='password' name='AccessCode' value=''> 
+     <label name="AccessCode">Access code: </label> 
+     <input type='password' name='AccessCode' value='' class="txt-small"> 
     </li>
     <li>
     <a href="javascript:;" onclick="hhotelDispoprice(document.idForm);" class="dark-purple check-available">Check Availability</a>
