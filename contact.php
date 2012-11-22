@@ -16,7 +16,7 @@ Template Name: Contact
 			var longitude = <?php echo $data['map_long'];?>;
 			var myLatlng = new google.maps.LatLng(latitude, longitude);
 			var myOptions = {							  
-			  zoom: 16,
+			  zoom: 17,
 			  center: myLatlng,
 			  mapTypeId: google.maps.MapTypeId.ROADMAP
 			}
