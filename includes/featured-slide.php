@@ -32,7 +32,7 @@
           
           <a href="#" class="next">Next</a>
                 
-          <div id="caption"><h3></h3></div>
+          <div id="caption"><h3 class="cufon"></h3></div>
       </div><!--/.wrapper slide-->
       
       <div id="nav"></div>
