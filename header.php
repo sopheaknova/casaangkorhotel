@@ -38,7 +38,7 @@
 <?php wp_head(); ?>
 
 </head>
-<body <?php body_class(); if ( $data['disable_booking_form'] !== 'yes') { ?> onLoad='start();'<?php } ?>>
+<body <?php body_class(); ?>>
 
 <!-- wrapper -->
 <div id="wrapper">
