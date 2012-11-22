@@ -119,7 +119,7 @@ function sp_framework_register_scripts() {
 		//wp_register_script( 'jquery',   SP_BASE_URL . 'js/jquery.1.8.2.js', array(), '1.8.2', false ); //use for local development
 
 		wp_register_script( 'cufoncore',            SP_BASE_URL . 'fonts/cufon-yui.js',               array('jquery'), false, true );
-		wp_register_script( 'helveticafonts',            SP_BASE_URL . 'fonts/helvetica.cufonfonts.js',               array('jquery'), false, true );
+		wp_register_script( 'helveticafonts',            SP_BASE_URL . 'fonts/myriad-pro.cufonfonts.js',               array('jquery'), false, true );
 		
 		wp_register_script( 'easing',            SP_BASE_URL . 'js/jquery.easing-1.3.min.js',               array('jquery'), false, false );
 		wp_register_script( 'fancybox',          SP_BASE_URL . 'js/jquery.fancybox.pack.js',                array('jquery'), false, true );

@@ -1,4 +1,4 @@
-Cufon.replace('.cat-article h2, .news-wrap .items h4, .cufon', { fontFamily: "Helvetica LT Std" });
+Cufon.replace('.cat-article h2, .news-wrap .items h4, .cufon', { fontFamily: 'Myriad Pro Bold', hover: true });
 
 jQuery(document).ready(function($) {
 
