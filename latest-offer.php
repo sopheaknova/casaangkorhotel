@@ -58,8 +58,7 @@ Template Name: Latest Offer
 						$title_term = get_the_title($page_term_slug->ID);
 			 			$title_policy = get_the_title($page_policy_slug->ID);
 			 		   ?>
-					   <p><a href="<?php echo get_page_link($page_term_slug->ID); ?>" class="arrow-link"><?php echo $title_term; ?></a><br />
-					  <a href="<?php echo get_page_link($page_policy_slug->ID); ?>" class="arrow-link"><?php echo $title_policy; ?></a></p>
+					   <p><a href="<?php echo get_page_link($page_policy_slug->ID); ?>" class="arrow-link"><?php echo $title_policy; ?></a></p>
                     </div>
                 </div> 
                 <div class="clear"></div>

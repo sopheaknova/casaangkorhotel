@@ -127,7 +127,7 @@ $of_options[] = array( "name" => "Custom favicon upload",
 					"mod" => "min",
 					"type" => "media");					
 					
-$of_options[] = array( "name" => "Booking button text",
+/*$of_options[] = array( "name" => "Booking button text",
 					"desc" => "Enter the text for Booking Button. e.g: Reservation or Book Now",
 					"id" => "booking_btn_txt",
 					"std" => "Booking",
@@ -141,7 +141,7 @@ $of_options[] = array( "name" => "Disable Booking button",
 					"options" => array(
 						'yes' => 'Yes',
 						'no' => 'No')
-					);
+					);*/
 
 $of_options[] = array( "name" => "Disable Booking Form",
 					"desc" => "Show or hide Booking Form",
@@ -160,14 +160,7 @@ $of_options[] = array( "name" => "Select Category Latest Offer",
 					"type" => "select",
 					"options" => $of_categories);
 					
-$of_options[] = array( "name" => "Select Page Terms and Condition",
-					"desc" => "Being Terms and Condition being used on the site.",
-					"id" => "terms_page",
-					"std" => "Select page:",
-					"type" => "select",
-					"options" => $of_pages);
-					
-$of_options[] = array( "name" => "Select Page Concellation Policy",
+$of_options[] = array( "name" => "Select Page Privacy Policy",
 					"desc" => "Being Concellation Policy being used on the site.",
 					"id" => "policy_page",
 					"std" => "Select page:",
@@ -265,14 +258,14 @@ $of_options[] = array( "name" => "Select a Contact page",
 $of_options[] = array( "name" => "Latitude",
 					"desc" => "Latitude of google map see <a href='http://itouchmap.com'>itouchmap.com</a>",
 					"id" => "map_lat",
-					"std" => "13.36016",
+					"std" => "13.36074",
 					"type" => "text"
 					);
 
 $of_options[] = array( "name" => "Longitude",
 					"desc" => "Longitude of google map see <a href='http://itouchmap.com'>itouchmap.com</a>",
 					"id" => "map_long",
-					"std" => "103.856415",
+					"std" => "103.85662",
 					"type" => "text"
 					);										
 					
