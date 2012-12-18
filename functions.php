@@ -70,9 +70,6 @@ include( SP_BASE_DIR . 'framework/widgets.php' );
 // Add shortcodes function
 include( SP_BASE_DIR . 'framework/shortcodes.php' );
 
-// Add custom functions
-include( SP_BASE_DIR . 'framework/custom-functions.php' );
-
 // Add custom post types
 include( SP_BASE_DIR . 'framework/custom-post-types.php' );
 
